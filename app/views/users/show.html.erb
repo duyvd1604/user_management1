@@ -1,0 +1,20 @@
+<div class="container">
+  <h1 class="text-center">User Information</h1>
+
+  <div class="mb-3">
+    <label for="name" class="form-label">Name</label>
+    <input class="form-control" id="user_name" value="<%= @user.name %>" readonly>
+  </div>
+  <div class="mb-3">
+    <label for="email" class="form-label">Email</label>
+    <input class="form-control" id="user_email" value="<%= @user.email %>" readonly>
+  </div>
+  <div class="mb-3">
+    <label for="address" class="form-label">Address</label>
+    <input class="form-control" id="user_address" value="<%= @user.address %>" readonly>
+  </div>
+
+  <button class="btn btn-info"><%= link_to "Edit", edit_user_path(@user) %></button>
+  <button class="btn btn-danger"><%= link_to "Back", users_path %></button>
+
+</div>

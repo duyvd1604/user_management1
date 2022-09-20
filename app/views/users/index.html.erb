@@ -1,0 +1,29 @@
+<div class="container">
+  <h1 class="text-center">User Management</h1>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Address</th>
+        <th colspan="3" scope="col" class="action">Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.name %></td>
+          <td><%= user.email %></td>
+          <td><%= user.address %></td>
+          <td class="text"><button class="btn btn-primary"><%= link_to "Show", user %></button></td>
+          <td class="text"><button class="btn btn-info"><%= link_to "Edit", edit_user_path(user) %></button></td>
+          <td class="text"><%= button_to "Destroy", user, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <button class="btn btn-success"><%= link_to "New User", new_user_path %></button>
+</div>

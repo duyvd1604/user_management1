@@ -1,0 +1,35 @@
+<div class="container">
+<%= form_with(model: user) do |f| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+        <% user.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= f.label :name %>
+    <input type="text" class="form-control" id="user_name" placeholder="Enter name" name="user[name]" value="<%= user.name %>">
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :email %>
+    <input type="email" class="form-control" id="user_email" placeholder="Enter email" name="user[email]" value="<%= user.email %>">
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :address %>
+    <input type="text" class="form-control" id="user_address" placeholder="Enter address" name="user[address]" value="<%= user.address %>">
+  </div>
+
+  <div class="actions">
+    <button name="commit" type="submit" class="btn btn-success">Submit</button>
+    <button class="btn btn-danger"><%= link_to "Back", users_path %></button>
+  </div>
+<% end %>
+</div>
